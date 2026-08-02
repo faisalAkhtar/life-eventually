@@ -1,0 +1,78 @@
+.statisticsGrid {
+  width: 300px;
+  flex-shrink: 0;
+  padding: 0 16px;
+}
+
+.statisticsBox {
+  background-color: var(--surface-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px;
+  margin: 12px 0;
+}
+
+.statisticsBox h3 {
+  text-align: center;
+  margin: 8px 0;
+}
+
+.statisticsBox table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.statisticsBox svg {
+  display: block;
+}
+
+.statisticsBox table tr {
+  &:hover {
+    cursor: pointer;
+    background-color: #efefef;
+  }
+}
+
+.statisticsBox table td {
+  padding: 12px;
+  text-align: left;
+
+  &:first-child {
+    padding: 0 16px;
+    font-weight: 600;
+    font-size: 120%;
+  }
+
+  &:nth-child(2) {
+    font-weight: 600;
+  }
+}
+
+.activityRow {
+  display: flex;
+  padding: 4px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #efefef;
+  }
+}
+
+.activityImg {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--completed);
+  padding: 1px;
+  border-radius: 100%;
+}
+
+.activityData {
+  flex-grow: 1;
+  padding: 4px 0 4px 16px;
+}
+
+.activityDate {
+  color: var(--text-muted);
+  font-size: 90%;
+}

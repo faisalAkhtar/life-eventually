@@ -1,0 +1,67 @@
+.cardDiv {
+  position: relative;
+  text-align: center;
+  font-size: 14px;
+}
+
+.cardDiv img {
+  border-radius: 100%;
+  padding: 4px;
+  border: 2px solid var(--completed);
+  transition: padding var(--transition),
+              border var(--transition);
+
+  &:hover {
+    padding: 0;
+    cursor: pointer;
+    border: 0;
+  }
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  margin: 8px 0;
+  font-size: 20px;
+}
+
+.cardDate {
+  margin-top: 4px;
+  color: var(--completed);
+}
+
+.top-right-checkbox {
+  position: absolute;
+  top: 6%;
+  right: 6%;
+  z-index: 10;
+  appearance: none;
+  -webkit-appearance: none; 
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--completed);
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  background-color: var(--background);
+}
+
+.top-right-checkbox:checked {
+  border: 2px solid var(--surface-secondary);
+  background-color: var(--completed);
+}
+
+.top-right-checkbox::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  background-color: var(--background);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.top-right-checkbox:checked::before {
+  transform: scale(1);
+}

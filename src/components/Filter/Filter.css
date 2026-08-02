@@ -1,0 +1,25 @@
+.filterBox {
+  display: inline-flex;
+  border-right: 1px solid var(--border-color);
+}
+
+.filterBtn {
+  padding: 16px 25px;
+  cursor: pointer;
+  border-radius: 20px;
+  margin: 0 4px;
+
+  &.selected {
+    background-color: var(--text);
+    color: var(--background);
+
+    &:hover {
+      background-color: var(--text);
+      color: var(--background);
+    }
+  }
+
+  &:hover {
+    background-color: #e9e9e9;
+  }
+}

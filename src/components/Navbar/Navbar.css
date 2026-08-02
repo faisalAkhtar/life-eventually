@@ -1,0 +1,89 @@
+nav {
+  background-color: var(--text);
+  color: var(--background);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 275px;
+  height: 100%;
+  position: fixed;
+  padding: 12px;
+  left: 0;
+  top: 0;
+  z-index: 3;
+}
+
+.navTitle {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  margin-bottom: 36px;
+}
+
+.navOptions {
+  padding: 12px 8px;
+  border-radius: 8px;
+  margin: 4px 0;
+  display: flex;
+  gap: 8px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+  }
+}
+
+.navOptions.selected {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navOptions svg {
+  fill: var(--background);
+  height: 24px;
+  display: inline-block;
+}
+
+.navOptionName {}
+
+.navQuote {
+  padding: 0 20px;
+}
+
+.quoteSvg {
+  fill: var(--text-muted);
+  width: 60px;
+}
+
+.subQuote {
+  line-height: 2;
+}
+
+.subQuoteBy,
+.mainQuoteBy {
+  margin: 16px 0;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.mainQuoteBy {
+  margin-left: 8px;
+  font-size: 110%;
+}
+
+.navMode {
+  margin-top: 60px;
+  height: 30px;
+  display: flex;
+  gap: 16px;
+}
+
+.navMode svg {
+  width: 24px;
+  fill: var(--text-muted);
+  cursor: pointer;
+  transition: fill var(--transition);
+
+  &:hover {
+    fill: var(--background);
+  }
+}
