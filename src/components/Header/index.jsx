@@ -28,8 +28,8 @@ export default function Header({ completed, total }) {
           </div>
         </div>
 
-        <div class="progress-container">
-          <div class="progress-bar" style={{ width: `${(completed / total) * 100}%` }}></div>
+        <div className="progress-container">
+          <div className="progress-bar" style={{ width: `${(completed / total) * 100}%` }}></div>
         </div>
       </div>
     </header>

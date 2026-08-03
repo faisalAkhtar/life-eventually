@@ -4,18 +4,80 @@
   font-size: 14px;
 }
 
-.cardDiv img {
-  border-radius: 100%;
-  padding: 4px;
-  border: 2px solid var(--completed);
-  transition: padding var(--transition),
-              border var(--transition);
+.cardImgDiv {
+  display: inline-block;
+  position: relative;
+}
 
+.cardImg {
+  width: 250px;
+  border-radius: 100%;
+  padding: 8px;
+  border: 2px solid var(--todo);
+  transition: padding var(--transition),
+    border var(--transition);
+}
+
+.cardImgDiv {
   &:hover {
-    padding: 0;
-    cursor: pointer;
-    border: 0;
+    .cardImg {
+      padding: 0px;
+      border: 2px solid rgba(139, 139, 139, 0.8);
+    }
+
+    .checkbox {
+      border: 2px solid rgba(139, 139, 139, 0.8);
+    }
   }
+}
+
+.cardImgDiv.completed {
+  .cardImg {
+    border: 2px solid var(--completed);
+  }
+
+  .checkbox {
+    border: 4px solid var(--surface-secondary);
+  }
+}
+
+.checkbox {
+  position: absolute;
+  top: 9.5%;
+  right: 9.5%;
+  z-index: 10;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--todo);
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  background-color: var(--background);
+}
+
+.checkbox:checked {
+  top: 7.5%;
+  right: 7.5%;
+  width: 30px;
+  height: 30px;
+  border: 6px solid var(--surface-secondary);
+  background-color: var(--completed);
+}
+
+.checkbox::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  background-color: var(--background);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.checkbox:checked::before {
+  transform: scale(1);
 }
 
 .cardTitle {
@@ -28,40 +90,4 @@
 .cardDate {
   margin-top: 4px;
   color: var(--completed);
-}
-
-.top-right-checkbox {
-  position: absolute;
-  top: 6%;
-  right: 6%;
-  z-index: 10;
-  appearance: none;
-  -webkit-appearance: none; 
-  width: 24px;
-  height: 24px;
-  border: 2px solid var(--completed);
-  border-radius: 50%;
-  cursor: pointer;
-  display: grid;
-  place-content: center;
-  background-color: var(--background);
-}
-
-.top-right-checkbox:checked {
-  border: 2px solid var(--surface-secondary);
-  background-color: var(--completed);
-}
-
-.top-right-checkbox::before {
-  content: "";
-  width: 12px;
-  height: 12px;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  background-color: var(--background);
-  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-}
-
-.top-right-checkbox:checked::before {
-  transform: scale(1);
 }

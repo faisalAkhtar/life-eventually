@@ -1,13 +1,15 @@
 .filterBox {
   display: inline-flex;
+  padding-right: 24px;
   border-right: 1px solid var(--border-color);
 }
 
 .filterBtn {
-  padding: 16px 25px;
+  padding: 16px 24px;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 24px;
   margin: 0 4px;
+  transition: background-color var(--transition);
 
   &.selected {
     background-color: var(--text);

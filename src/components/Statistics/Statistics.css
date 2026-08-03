@@ -9,12 +9,27 @@
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 12px;
-  margin: 12px 0;
+  margin: 20px 0;
+
+  &:hover {
+    .underScore {
+      background-color: var(--completed);
+    }
+  }
 }
 
 .statisticsBox h3 {
   text-align: center;
-  margin: 8px 0;
+  margin-top: 8px;
+}
+
+.underScore {
+  width: 120px;
+  height: 3px;
+  border-radius: 3px;
+  margin: 0 auto;
+  background-color: transparent;
+  transition: background-color var(--transition);
 }
 
 .statisticsBox table {
@@ -38,19 +53,40 @@
   text-align: left;
 
   &:first-child {
-    padding: 0 16px;
+    min-width: 24px;
+    padding: 0 4px;
     font-weight: 600;
     font-size: 120%;
   }
 
   &:nth-child(2) {
     font-weight: 600;
+    text-align: center;
   }
+}
+
+.whatsNextDiv {
+  text-align: center;
+  padding: 8px 0;
+}
+
+.whatsNextImg {
+  display: inline-block;
+  width: 60%;
+  border-radius: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.whatsNextTitle {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 20px;
+  margin: 8px 0;
 }
 
 .activityRow {
   display: flex;
-  padding: 4px;
+  padding: 8px 2px;
 
   &:hover {
     cursor: pointer;

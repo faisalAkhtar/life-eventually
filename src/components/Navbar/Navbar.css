@@ -12,10 +12,15 @@ nav {
   left: 0;
   top: 0;
   z-index: 3;
+
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface-secondary) var(--text);
 }
 
 .navTitle {
-  font-family: var(--font-heading);
+  font-family: "Aliya";
+  font-weight: bold;
   font-size: 36px;
   margin-bottom: 36px;
 }
@@ -43,8 +48,6 @@ nav {
   display: inline-block;
 }
 
-.navOptionName {}
-
 .navQuote {
   padding: 0 20px;
 }
@@ -68,22 +71,4 @@ nav {
 .mainQuoteBy {
   margin-left: 8px;
   font-size: 110%;
-}
-
-.navMode {
-  margin-top: 60px;
-  height: 30px;
-  display: flex;
-  gap: 16px;
-}
-
-.navMode svg {
-  width: 24px;
-  fill: var(--text-muted);
-  cursor: pointer;
-  transition: fill var(--transition);
-
-  &:hover {
-    fill: var(--background);
-  }
 }

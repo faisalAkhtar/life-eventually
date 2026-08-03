@@ -4,8 +4,33 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  /* Width for vertical scrollbars */
+  height: 10px;
+  /* Height for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text);
+  border-radius: 4px;
+  border: 2px solid var(--surface-secondary);
+  /* Creates a padding effect around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--text) var(--surface-secondary);
 }
 
 body {
@@ -42,5 +67,12 @@ main {
 
 .collectionPage {
   display: flex;
+  align-items: flex-start;
   gap: 20px;
+}
+
+.emptyQuote {
+  text-align: center;
+  font-style: italic;
+  color: var(--text-muted);
 }

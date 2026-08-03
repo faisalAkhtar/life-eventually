@@ -1,3 +1,11 @@
+/* Aliya */
+@font-face {
+  font-family: 'Aliya';
+  src: url('/src/assets/fonts/Aliya-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* Cormorant Garamond */
 @font-face {
   font-family: 'Cormorant Garamond';
