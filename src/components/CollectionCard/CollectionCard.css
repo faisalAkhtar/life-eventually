@@ -45,7 +45,6 @@
   position: absolute;
   top: 9.5%;
   right: 9.5%;
-  z-index: 10;
   appearance: none;
   -webkit-appearance: none;
   width: 20px;
@@ -90,4 +89,43 @@
 .cardDate {
   margin-top: 4px;
   color: var(--completed);
+}
+
+@media (max-width:1280px) {
+  .cardImg {
+    width: 200px;
+    padding: 6px;
+  }
+
+  .checkbox {
+    top: 7.5%;
+    right: 7.5%;
+  }
+
+  .checkbox:checked {
+    top: 5%;
+    right: 5%;
+  }
+}
+
+@media (max-width:1024px) {
+  .cardImg {
+    width: 160px;
+    padding: 4px;
+  }
+
+  .checkbox {
+    top: 6%;
+    right: 6%;
+  }
+
+  .checkbox:checked {
+    top: 4%;
+    right: 4%;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+    margin: 0;
+  }
 }

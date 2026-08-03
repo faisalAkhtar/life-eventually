@@ -7,3 +7,10 @@
   padding: 16px 100px;
   border-bottom: 1px solid var(--border-color);
 }
+
+@media (max-width:1024px) {
+  .topBar {
+    padding: 8px;
+    align-items: center;
+  }
+}

@@ -9,7 +9,7 @@
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 12px;
-  margin: 20px 0;
+  margin: 20px auto;
 
   &:hover {
     .underScore {
@@ -111,4 +111,14 @@
 .activityDate {
   color: var(--text-muted);
   font-size: 90%;
+}
+
+@media screen and (max-width:1024px) {
+  .statisticsGrid {
+    width: 100%;
+  }
+
+  .statisticsBox {
+    max-width: 300px;
+  }
 }

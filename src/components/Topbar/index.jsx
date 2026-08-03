@@ -1,8 +1,8 @@
 import "./Topbar.css";
 
-export default function Topbar({ children }) {
+export default function Topbar({ children, smallHidden }) {
   return (
-    <div className="topBar">
+    <div className={smallHidden ? "topBar" : "topBar smallHidden"}>
       { children }
     </div>
   );

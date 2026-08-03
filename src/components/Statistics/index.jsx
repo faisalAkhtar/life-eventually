@@ -1,12 +1,12 @@
 import "./Statistics.css";
 
-export default function Statistics({ total, completed, categoryCounts, svgMap, recentActivities, whatsNext }) {
+export default function Statistics({ total, completed, categoryCounts, svgMap, recentActivities, whatsNext, smallHidden }) {
   const DreamsIcon = svgMap['dreams']
   const FulfilledIcon = svgMap['check']
   const ToDoIcon = svgMap['list']
 
   return (
-    <div className="statisticsGrid">
+    <div className={smallHidden ? "statisticsGrid" : "statisticsGrid smallHidden"}>
       <div className="statisticsBox">
         <h3>At a Glance</h3>
         <div className="underScore" />

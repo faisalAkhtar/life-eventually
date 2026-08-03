@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Navbar.css";
 
-export default function Navbar({ categoryCounts, svgMap, filterBucket }) {
+export default function Navbar({ categoryCounts, svgMap, filterBucket, smallVisible }) {
   const QuoteSvg = svgMap['quote'];
   const DreamsSvg = svgMap['dreams'];
   const [selected, setSelected] = useState('all');
@@ -42,7 +42,7 @@ export default function Navbar({ categoryCounts, svgMap, filterBucket }) {
         }
       </div>
 
-      <div className="navBot">
+      <div className={smallVisible ? "navBot smallVisible" : "navBot"}>
         <div className="navQuote">
           <QuoteSvg className="quoteSvg" />
           <div className="subQuote">You miss 100% of the shots you don't take</div>

@@ -1,0 +1,40 @@
+.smallNavbarDiv {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 54px;
+  display: none;
+  background-color: #e4e4e4;
+  gap: 1px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.smallNavbarItem {
+  flex-grow: 1;
+  background-color: #f6f3ed;
+  text-align: center;
+  padding-top: 6px;
+  border-top: 3px solid #f6f3ed;
+  transition: border var(--transition);
+}
+
+.smallNavbarItem.selected {
+  border-top: 3px solid var(--text-muted);
+}
+
+.smallNavbarSvg {
+  width: 24px;
+}
+
+.smallNavbarTxt {
+  font-size: 12px;
+  line-height: 0;
+  color: var(--text-muted);
+}
+
+@media screen and (max-width:1024px) {
+  .smallNavbarDiv {
+    display: flex;
+  }
+}

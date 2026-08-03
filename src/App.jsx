@@ -15,6 +15,8 @@ import Statistics from "./components/Statistics/";
 import Footer from "./components/Footer/";
 import Filter from "./components/Filter/";
 import Search from "./components/Search/";
+import SmallScreenFilter from "./components/SmallScreenFilter";
+import SmallScreenNavbar from "./components/SmallScreenNavbar";
 
 const svgModules = import.meta.glob('./assets/icons/*.svg', {
   eager: true,
@@ -73,19 +75,23 @@ export default function App() {
     return onlyCompleted[Math.floor(Math.random() * onlyCompleted.length)];
   };
 
+  const [smallPage, setSmallPage] = useState(0);
+
   return (
     <>
-      <Navbar filterBucket={setFilterCategory} categoryCounts={categoryCounts} svgMap={svgMap} />
+      <Navbar smallVisible={smallPage === 3} filterBucket={setFilterCategory} categoryCounts={categoryCounts} svgMap={svgMap} />
+
       <main>
         <Header total={bucket.length} completed={completed} />
 
-        <Topbar>
+        <Topbar smallHidden={smallPage === 0}>
           <Filter filterBucket={setFilterStatus} length={filteredBucketItems.length} />
           <Search />
+          <SmallScreenFilter Icon={svgMap['filter']} />
         </Topbar>
 
         <div className="collectionPage">
-          <CollectionGrid>
+          <CollectionGrid smallHidden={smallPage === 0}>
             {filteredBucketItems.length === 0 ? (
               <div className="emptyQuote">If I am alive and kicking, something is coming up right here. Stay tuned! &mdash; Yours truly.</div>
             ) : (
@@ -111,11 +117,21 @@ export default function App() {
             svgMap={svgMap}
             recentActivities={recentActivities}
             whatsNext={whatsNext()}
+            smallHidden={smallPage === 2}
           />
         </div>
 
         <Footer />
       </main>
+
+      <SmallScreenNavbar
+        HomeSvg={svgMap['home']}
+        SearchSvg={svgMap['search']}
+        StatsSvg={svgMap['stats']}
+        QuoteSvg={svgMap['quote']}
+        selected={smallPage}
+        setSelected={setSmallPage}
+      />
     </>
   );
 }

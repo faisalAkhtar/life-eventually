@@ -1,8 +1,8 @@
 import "./CollectionGrid.css";
 
-export default function CollectionGrid({ children }) {
+export default function CollectionGrid({ children, smallHidden }) {
   return (
-    <div className="collectionGrid">
+    <div className={smallHidden ? "collectionGrid" : "collectionGrid smallHidden"}>
       { children }
     </div>
   );

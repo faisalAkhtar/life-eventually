@@ -1,0 +1,16 @@
+.filterIconDiv {
+  display: none;
+  padding: 4px 8px;
+  background-color: rgba(140, 140, 140, 0.1);
+  border-radius: 16px;
+}
+
+.filterIconSvg {
+  width: 20px;
+}
+
+@media (max-width:1024px) {
+  .filterIconDiv {
+    display: block;
+  }
+}

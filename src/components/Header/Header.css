@@ -2,7 +2,7 @@
   background-image: url('/src/assets/images/hero.png');
   background-position-y: bottom;
   background-size: cover;
-  padding: 10px 100px;
+  padding: 48px 100px;
 }
 
 .hero__content {
@@ -14,7 +14,7 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text);
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .hero__title {
@@ -69,7 +69,7 @@
   background-color: var(--progress-bg);
   border-radius: 16px;
   overflow: hidden;
-  margin: 25px 0;
+  margin-top: 1rem;
 }
 
 .progress-bar {
@@ -79,9 +79,19 @@
   transition: width 0.4s ease;
 }
 
-@media (max-width:768px) {
+@media (max-width:1280px) {
   .hero {
-    margin-top: 3rem;
+    padding: 16px;
+  }
+
+  .hero__content {
+    width: 70%;
+  }
+
+  .hero__title,
+  .hero__description,
+  .hero__stats {
+    margin-top: 1rem;
   }
 
   .hero__title {

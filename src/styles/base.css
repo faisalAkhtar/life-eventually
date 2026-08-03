@@ -75,4 +75,27 @@ main {
   text-align: center;
   font-style: italic;
   color: var(--text-muted);
+  padding: 64px 24px;
+}
+
+@media screen and (max-width:1280px) {
+  main {
+    width: unset;
+    margin-left: unset;
+    padding-bottom: 48px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .collectionPage {
+    display: block;
+  }
+
+  .emptyQuote {
+    padding: 64px 24px;
+  }
+
+  .smallHidden {
+    display: none !important;
+  }
 }

@@ -5,3 +5,10 @@
   gap: 24px;
   padding: 24px;
 }
+
+@media (max-width:1024px) {
+  .collectionGrid {
+    gap: 12px;
+    padding: 24px 0;
+  }
+}
