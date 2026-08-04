@@ -1,16 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 
 import "./styles/fonts.css";
 import "./styles/variable.css";
 import "./styles/base.css";
 
 import bucket from "./data/bucket.json";
-const svgModules = import.meta.glob('./assets/icons/*.svg', { eager: true, query: '?react', import: 'default' });
-const imgModules = import.meta.glob('/src/assets/images/*.jpg', { eager: true, import: 'default' });
-const getImgUrl = (fileName) => {
-  const path = `/src/assets/images/${fileName}.jpg`;
-  return imgModules[path] || `/empty.jpg`;
-};
+import { getCategoryCounts, getRecentActivities, getWhatsNext, filterBucket } from "./utils/helperMethods";
 
 import Navbar from "./components/Navbar/";
 import Header from "./components/Header/";
@@ -27,70 +22,27 @@ import Options from "./components/Options/";
 
 export default function App() {
   const completed = bucket.filter(item => item.completed).length;
-
-  const categoryCounts = bucket.reduce((acc, item) => {
-    acc[item.category] = (acc[item.category] || 0) + 1;
-    return acc;
-  }, {});
-
-  const svgMap = {};
-  Object.entries(svgModules).forEach(([path, component]) => {
-    const filename = path.split('/').pop().replace('.svg', '');
-    svgMap[filename] = component;
-  });
-
-  const [filteredBucketItems, setFilteredBucketItems] = useState(bucket);
-  const [filterCategory, setFilterCategory] = useState('all');
-  const [filterStatus, setFilterStatus] = useState('all');
-
-  useEffect(() => {
-    if (filterCategory === 'all' && filterStatus === 'all') {
-      setFilteredBucketItems(bucket);
-    } else if (filterCategory === 'all') {
-      if (filterStatus === 'complete') {
-        setFilteredBucketItems(bucket.filter(item => item.completed));
-      } else {
-        setFilteredBucketItems(bucket.filter(item => !item.completed));
-      }
-    } else if (filterStatus === 'all') {
-      setFilteredBucketItems(bucket.filter(item => item.category === filterCategory));
-    } else {
-      if (filterStatus === 'complete') {
-        setFilteredBucketItems(bucket.filter(item => item.completed && item.category === filterCategory));
-      } else {
-        setFilteredBucketItems(bucket.filter(item => !item.completed && item.category === filterCategory));
-      }
-    }
-  }, [filterCategory, filterStatus]);
-
-  const recentActivities = [...bucket]
-    .sort((a, b) => {
-      if (a.dateCompleted === "") return 1;
-      if (b.dateCompleted === "") return -1;
-      return new Date(b.dateCompleted) - new Date(a.dateCompleted)
-    })
-    .slice(0, 3);
-
-  const whatsNext = () => {
-    const onlyCompleted = bucket.filter(item => !item.completed);
-    return onlyCompleted[Math.floor(Math.random() * onlyCompleted.length)];
-  };
+  const categoryCounts = getCategoryCounts(bucket);
+  const recentActivities = getRecentActivities(bucket, 3);
+  const whatsNext = getWhatsNext(bucket);
 
   const [smallPage, setSmallPage] = useState(0);
   const [smallFilter, setSmallFilter] = useState(false);
+  const [filterCategory, setFilterCategory] = useState('all');
+  const [filterStatus, setFilterStatus] = useState('all');
+  const filteredBucketItems = useMemo(() => filterBucket(bucket, filterCategory, filterStatus), [filterCategory, filterStatus]);
 
   return (
     <>
       <Navbar
         smallVisible={smallPage === 3}
         categoryCounts={categoryCounts}
-        svgMap={svgMap}
         filterBucket={setFilterCategory}
         selected={filterCategory}
       />
 
       <main>
-        <Header total={bucket.length} completed={completed} heroImg={getImgUrl('hero')} />
+        <Header total={bucket.length} completed={completed} />
 
         <Topbar smallHidden={smallPage === 0 || smallPage === 1}>
           <Filter
@@ -105,14 +57,12 @@ export default function App() {
             smallHidden={smallPage === 0}
             isOpen={smallFilter}
             toggleFilter={setSmallFilter}
-            Icon={svgMap['filter']}
           />
         </Topbar>
 
         <div className="collectionPage">
           <Options
             categoryCounts={categoryCounts}
-            svgMap={svgMap}
             filterBucket={setFilterCategory}
             selected={filterCategory}
             isVisibleOnSmallScreen={true}
@@ -134,10 +84,7 @@ export default function App() {
                   caption={item.caption}
                   completed={item.completed}
                   dateCompleted={item.dateCompleted}
-                  image={item.image}
-                  Empty={svgMap['empty']}
                   slug={item.slug}
-                  getImgUrl={getImgUrl}
                 />
               ))
             )}
@@ -147,10 +94,8 @@ export default function App() {
             total={bucket.length}
             completed={completed}
             categoryCounts={categoryCounts}
-            svgMap={svgMap}
             recentActivities={recentActivities}
-            whatsNext={whatsNext()}
-            getImgUrl={getImgUrl}
+            whatsNext={whatsNext}
             smallHidden={smallPage === 2}
           />
         </div>
@@ -158,14 +103,7 @@ export default function App() {
         <Footer />
       </main>
 
-      <SmallScreenNavbar
-        HomeSvg={svgMap['home']}
-        SearchSvg={svgMap['search']}
-        StatsSvg={svgMap['stats']}
-        QuoteSvg={svgMap['quote']}
-        selected={smallPage}
-        setSelected={setSmallPage}
-      />
+      <SmallScreenNavbar selected={smallPage} setSelected={setSmallPage} />
     </>
   );
 }

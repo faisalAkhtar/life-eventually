@@ -1,6 +1,12 @@
 import "./SmallScreenNavbar.css";
+import { svgMap } from "../../utils/globLoader";
 
-export default function SmallScreenNavbar({ HomeSvg, SearchSvg, StatsSvg, QuoteSvg, selected, setSelected }) {
+export default function SmallScreenNavbar({ selected, setSelected }) {
+  const HomeSvg = svgMap['home'];
+  const SearchSvg = svgMap['search'];
+  const StatsSvg = svgMap['stats'];
+  const QuoteSvg = svgMap['quote'];
+
   return (
     <div className="smallNavbarDiv">
       <div

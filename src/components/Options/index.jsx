@@ -1,6 +1,7 @@
 import "./Options.css";
+import { svgMap } from "../../utils/globLoader";
 
-export default function Options({ categoryCounts, svgMap, filterBucket, selected, isVisibleOnSmallScreen, isOpen, toggleFilter, smallHidden }) {
+export default function Options({ categoryCounts, filterBucket, selected, isVisibleOnSmallScreen, isOpen, toggleFilter, smallHidden }) {
   const DreamsSvg = svgMap['dreams'];
   const optionsArr = ["optionsWrapper"];
   const handleClick = (category) => () => {

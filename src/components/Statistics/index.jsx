@@ -1,6 +1,8 @@
 import "./Statistics.css";
+import { getImgUrl, svgMap } from "../../utils/globLoader";
+import { reFormatDate } from "../../utils/helperMethods";
 
-export default function Statistics({ total, completed, categoryCounts, svgMap, recentActivities, whatsNext, getImgUrl, smallHidden }) {
+export default function Statistics({ total, completed, categoryCounts, recentActivities, whatsNext, smallHidden }) {
   const DreamsIcon = svgMap['dreams']
   const FulfilledIcon = svgMap['check']
   const ToDoIcon = svgMap['list']
@@ -52,7 +54,7 @@ export default function Statistics({ total, completed, categoryCounts, svgMap, r
         <div className="whatsNextDiv">
           <img
             className="whatsNextImg"
-            src={`/src/assets/images/${whatsNext.slug}.jpg`}
+            src={getImgUrl(whatsNext.slug)}
             loading="lazy"
             decoding="async"
           />
@@ -68,13 +70,13 @@ export default function Statistics({ total, completed, categoryCounts, svgMap, r
           <div className="activityRow" key={item.id}>
             <img
               className="activityImg"
-              src={`/src/assets/images/${item.slug}.jpg`}
+              src={getImgUrl(item.slug)}
               loading="lazy"
               decoding="async"
             />
             <div className="activityData">
               <div>{item.title}</div>
-              <div className="activityDate">{item.dateCompleted}</div>
+              <div className="activityDate">{reFormatDate(item.dateCompleted)}</div>
             </div>
           </div>
         ))}

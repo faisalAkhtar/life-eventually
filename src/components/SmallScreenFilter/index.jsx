@@ -1,6 +1,8 @@
 import "./SmallScreenFilter.css";
+import { svgMap } from "../../utils/globLoader";
 
-export default function SmallScreenFilter({ Icon, isOpen, smallHidden, toggleFilter }) {
+export default function SmallScreenFilter({ isOpen, smallHidden, toggleFilter }) {
+  const Icon = svgMap['filter'];
   return (
     <div className={smallHidden ? "filterIconWrapper" : "filterIconWrapper smallHidden"}>
       <div

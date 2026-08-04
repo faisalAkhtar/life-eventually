@@ -1,7 +1,8 @@
 import "./Navbar.css";
 import Options from "../Options/";
+import { svgMap } from "../../utils/globLoader";
 
-export default function Navbar({ categoryCounts, svgMap, filterBucket, smallVisible, selected }) {
+export default function Navbar({ categoryCounts, filterBucket, smallVisible, selected }) {
   const QuoteSvg = svgMap['quote'];
 
   return (
@@ -11,7 +12,6 @@ export default function Navbar({ categoryCounts, svgMap, filterBucket, smallVisi
 
         <Options
           categoryCounts={categoryCounts}
-          svgMap={svgMap}
           filterBucket={filterBucket}
           selected={selected}
           isVisibleOnSmallScreen={false}
