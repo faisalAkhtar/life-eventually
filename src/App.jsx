@@ -5,7 +5,8 @@ import "./styles/variable.css";
 import "./styles/base.css";
 
 import bucket from "./data/bucket.json";
-import { getCategoryCounts, getRecentActivities, getWhatsNext, filterBucket } from "./utils/helperMethods";
+import { filterBucket } from "./utils/helperMethods";
+import { useBucketData } from "./hooks/useBucketData";
 
 import Navbar from "./components/Navbar/";
 import Header from "./components/Header/";
@@ -21,11 +22,7 @@ import SmallScreenNavbar from "./components/SmallScreenNavbar/";
 import Options from "./components/Options/";
 
 export default function App() {
-  const completed = bucket.filter(item => item.completed).length;
-  const categoryCounts = getCategoryCounts(bucket);
-  const recentActivities = getRecentActivities(bucket, 3);
-  const whatsNext = getWhatsNext(bucket);
-
+  const { completed, categoryCounts, recentActivities, whatsNext } = useBucketData(bucket);
   const [smallPage, setSmallPage] = useState(0);
   const [smallFilter, setSmallFilter] = useState(false);
   const [filterCategory, setFilterCategory] = useState('all');
