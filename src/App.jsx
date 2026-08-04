@@ -5,6 +5,12 @@ import "./styles/variable.css";
 import "./styles/base.css";
 
 import bucket from "./data/bucket.json";
+const svgModules = import.meta.glob('./assets/icons/*.svg', { eager: true, query: '?react', import: 'default' });
+const imgModules = import.meta.glob('/src/assets/images/*.jpg', { eager: true, import: 'default' });
+const getImgUrl = (fileName) => {
+  const path = `/src/assets/images/${fileName}.jpg`;
+  return imgModules[path] || `/empty.jpg`;
+};
 
 import Navbar from "./components/Navbar/";
 import Header from "./components/Header/";
@@ -18,12 +24,6 @@ import Search from "./components/Search/";
 import SmallScreenFilter from "./components/SmallScreenFilter/";
 import SmallScreenNavbar from "./components/SmallScreenNavbar/";
 import Options from "./components/Options/";
-
-const svgModules = import.meta.glob('./assets/icons/*.svg', {
-  eager: true,
-  query: '?react',
-  import: 'default'
-});
 
 export default function App() {
   const completed = bucket.filter(item => item.completed).length;
@@ -90,7 +90,7 @@ export default function App() {
       />
 
       <main>
-        <Header total={bucket.length} completed={completed} />
+        <Header total={bucket.length} completed={completed} heroImg={getImgUrl('hero')} />
 
         <Topbar smallHidden={smallPage === 0 || smallPage === 1}>
           <Filter
@@ -137,6 +137,7 @@ export default function App() {
                   image={item.image}
                   Empty={svgMap['empty']}
                   slug={item.slug}
+                  getImgUrl={getImgUrl}
                 />
               ))
             )}
@@ -149,6 +150,7 @@ export default function App() {
             svgMap={svgMap}
             recentActivities={recentActivities}
             whatsNext={whatsNext()}
+            getImgUrl={getImgUrl}
             smallHidden={smallPage === 2}
           />
         </div>

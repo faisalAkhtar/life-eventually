@@ -1,6 +1,6 @@
 import "./Statistics.css";
 
-export default function Statistics({ total, completed, categoryCounts, svgMap, recentActivities, whatsNext, smallHidden }) {
+export default function Statistics({ total, completed, categoryCounts, svgMap, recentActivities, whatsNext, getImgUrl, smallHidden }) {
   const DreamsIcon = svgMap['dreams']
   const FulfilledIcon = svgMap['check']
   const ToDoIcon = svgMap['list']

@@ -1,6 +1,6 @@
 import "./CollectionCard.css";
 
-export default function CollectionCard({ title, caption, completed, dateCompleted, slug }) {
+export default function CollectionCard({ title, caption, completed, dateCompleted, slug, getImgUrl }) {
   return (
     <div className="cardDiv">
       <div className={completed ? "cardImgDiv completed" : "cardImgDiv"}>
