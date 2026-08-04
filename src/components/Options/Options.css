@@ -1,0 +1,42 @@
+.optionsDiv {
+  padding: 12px 8px;
+  border-radius: 8px;
+  margin: 4px 0;
+  display: flex;
+  gap: 8px;
+
+  &:hover {
+    background-color: rgba(128, 128, 128, 0.05);
+    cursor: pointer;
+  }
+}
+
+.optionsDiv.selected {
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+.optionsDiv svg {
+  fill: currentColor;
+  height: 24px;
+  display: inline-block;
+}
+
+.optionsWrapper {
+  display: block;
+}
+
+.optionsWrapper.smallScreenOptions {
+  display: none;
+  padding: 0 12px;
+  box-shadow: var(--shadow);
+}
+
+@media screen and (max-width:1280px) {
+  .optionsWrapper {
+    display: none;
+  }
+
+  .optionsWrapper.smallScreenOptions.isSmallOptionOpen {
+    display: block;
+  }
+}

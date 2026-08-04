@@ -1,16 +1,32 @@
-.filterIconDiv {
+.filterIconWrapper {
   display: none;
+  border-left: 1px solid var(--border-color);
+  padding: 10px 0 10px 20px;
+}
+
+.filterIconDiv {
   padding: 4px 8px;
   background-color: rgba(140, 140, 140, 0.1);
   border-radius: 16px;
+}
+
+.filterIconDiv.selected {
+  background-color: rgba(140, 140, 140, 0.2);
 }
 
 .filterIconSvg {
   width: 20px;
 }
 
-@media (max-width:1024px) {
-  .filterIconDiv {
+@media (max-width:1280px) {
+  .filterIconWrapper {
     display: block;
+  }
+}
+
+@media (max-width:1024px) {
+  .filterIconWrapper {
+    border-left: none;
+    padding: 3px 0 3px 12px;
   }
 }

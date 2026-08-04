@@ -84,6 +84,10 @@
   margin: 8px 0;
 }
 
+.whatsNextCaption {
+  font-size: 14px;
+}
+
 .activityRow {
   display: flex;
   padding: 8px 2px;
@@ -120,5 +124,11 @@
 
   .statisticsBox {
     max-width: 300px;
+  }
+
+  .statisticsBox table td {
+    &:first-child {
+      padding: 0 8px;
+    }
   }
 }

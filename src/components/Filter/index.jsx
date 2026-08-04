@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Filter.css";
 
-export default function Filter({ length, filterBucket }) {
+export default function Filter({ filterBucket, smallHidden }) {
   const [selected, setSelected] = useState('all');
   const handleClick = (category) => {
     filterBucket(category);
@@ -9,7 +9,7 @@ export default function Filter({ length, filterBucket }) {
   }
 
   return (
-    <div className="filterBox">
+    <div className={smallHidden ? "filterBox" : "filterBox smallHidden"}>
       <div
         onClick={() => handleClick('all')}
         className={selected === 'all' ? "filterBtn selected" : "filterBtn"}

@@ -1,8 +1,8 @@
 import "./Search.css";
 
-export default function Search() {
+export default function Search({ smallHidden }) {
   return (
-    <div className="search-container">
+    <div className={smallHidden ? "search-container" : "search-container smallHidden"}>
       <input type="text" className="search-input" placeholder="Search dreams..." />
       <button className="search-btn" type="submit">
         <svg width="16" height="16" className="bi bi-search" viewBox="0 0 16 16">

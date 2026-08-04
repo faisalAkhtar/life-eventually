@@ -15,8 +15,9 @@ import Statistics from "./components/Statistics/";
 import Footer from "./components/Footer/";
 import Filter from "./components/Filter/";
 import Search from "./components/Search/";
-import SmallScreenFilter from "./components/SmallScreenFilter";
-import SmallScreenNavbar from "./components/SmallScreenNavbar";
+import SmallScreenFilter from "./components/SmallScreenFilter/";
+import SmallScreenNavbar from "./components/SmallScreenNavbar/";
+import Options from "./components/Options/";
 
 const svgModules = import.meta.glob('./assets/icons/*.svg', {
   eager: true,
@@ -76,24 +77,54 @@ export default function App() {
   };
 
   const [smallPage, setSmallPage] = useState(0);
+  const [smallFilter, setSmallFilter] = useState(false);
 
   return (
     <>
-      <Navbar smallVisible={smallPage === 3} filterBucket={setFilterCategory} categoryCounts={categoryCounts} svgMap={svgMap} />
+      <Navbar
+        smallVisible={smallPage === 3}
+        categoryCounts={categoryCounts}
+        svgMap={svgMap}
+        filterBucket={setFilterCategory}
+        selected={filterCategory}
+      />
 
       <main>
         <Header total={bucket.length} completed={completed} />
 
-        <Topbar smallHidden={smallPage === 0}>
-          <Filter filterBucket={setFilterStatus} length={filteredBucketItems.length} />
-          <Search />
-          <SmallScreenFilter Icon={svgMap['filter']} />
+        <Topbar smallHidden={smallPage === 0 || smallPage === 1}>
+          <Filter
+            smallHidden={smallPage === 0}
+            filterBucket={setFilterStatus}
+            length={filteredBucketItems.length}
+          />
+
+          <Search smallHidden={smallPage === 1} />
+
+          <SmallScreenFilter
+            smallHidden={smallPage === 0}
+            isOpen={smallFilter}
+            toggleFilter={setSmallFilter}
+            Icon={svgMap['filter']}
+          />
         </Topbar>
 
         <div className="collectionPage">
+          <Options
+            categoryCounts={categoryCounts}
+            svgMap={svgMap}
+            filterBucket={setFilterCategory}
+            selected={filterCategory}
+            isVisibleOnSmallScreen={true}
+            isOpen={smallFilter}
+            smallHidden={smallPage === 0}
+          />
+
           <CollectionGrid smallHidden={smallPage === 0}>
             {filteredBucketItems.length === 0 ? (
-              <div className="emptyQuote">If I am alive and kicking, something is coming up right here. Stay tuned! &mdash; Yours truly.</div>
+              <div className="emptyQuote">
+                If I am alive and kicking, something is coming up right here. Stay tuned! &mdash; Yours truly.
+              </div>
             ) : (
               filteredBucketItems.map((item) => (
                 <CollectionCard
