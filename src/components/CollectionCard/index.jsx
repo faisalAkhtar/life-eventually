@@ -5,11 +5,7 @@ export default function CollectionCard({ title, caption, completed, dateComplete
     <div className="cardDiv">
       <div className={completed ? "cardImgDiv completed" : "cardImgDiv"}>
         <input checked={completed} type="checkbox" className="checkbox" readOnly />
-        <img
-          className="cardImg"
-          src={`../src/assets/images/${slug}.jpg`}
-          onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = `../src/assets/images/empty.jpg`; }}
-        />
+        <img className="cardImg" src={`/src/assets/images/${slug}.jpg`} loading="lazy" decoding="async" />
       </div>
       <div className="cardTitle">{title}</div>
       <div>{caption}</div>

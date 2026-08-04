@@ -10,7 +10,9 @@
 }
 
 .cardImg {
+  background-color: var(--surface-secondary);
   width: 250px;
+  height: 250px;
   border-radius: 100%;
   padding: 8px;
   border: 2px solid var(--todo);
@@ -81,9 +83,9 @@
 
 .cardTitle {
   font-family: var(--font-heading);
-  font-weight: 800;
+  font-weight: normal;
   margin: 8px 0;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .cardDate {
@@ -94,6 +96,7 @@
 @media (max-width:1280px) {
   .cardImg {
     width: 200px;
+    height: 200px;
     padding: 6px;
   }
 
@@ -111,6 +114,7 @@
 @media (max-width:1024px) {
   .cardImg {
     width: 160px;
+    height: 160px;
     padding: 4px;
   }
 
@@ -125,7 +129,7 @@
   }
 
   .cardTitle {
-    font-size: 18px;
-    margin: 0;
+    font-size: 14px;
+    margin: 4px 0;
   }
 }

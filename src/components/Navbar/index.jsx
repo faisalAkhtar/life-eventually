@@ -15,7 +15,6 @@ export default function Navbar({ categoryCounts, svgMap, filterBucket, smallVisi
           filterBucket={filterBucket}
           selected={selected}
           isVisibleOnSmallScreen={false}
-          isOpen={true}
         />
       </div>
 

@@ -1,108 +1,121 @@
-.hero {
-  background-image: url('/src/assets/images/hero.png');
-  background-position-y: bottom;
+.heroDiv {
+  background-image: url('/hero-large.jpg');
+  background-position-x: right;
+  background-position-y: top;
   background-size: cover;
   padding: 48px 100px;
 }
 
-.hero__content {
+.heroContent {
   max-width: 760px;
+  text-shadow: 1px 0 1px white;
+  color: var(--text);
 }
 
-.hero__eyebrow {
+.heroEyebrow {
   font-size: 0.95rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text);
   margin-top: 1rem;
 }
 
-.hero__title {
+.heroTitle {
   font-family: var(--font-heading);
   font-size: clamp(3.8rem, 8vw, 6rem);
-  font-weight: 600;
+  font-weight: normal;
   margin-top: 60px;
-  color: var(--text);
 }
 
-.hero__description {
-  margin-top: 2rem;
-  font-size: 1.3rem;
-  line-height: 1.8;
-  color: var(--text-inv);
-  max-width: 540px;
-}
-
-.hero__stats {
+.heroStatsDiv {
   display: flex;
   align-items: center;
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 8rem;
+  padding-left: 24px;
 }
 
-.hero__stat {
+.heroStat {
   display: flex;
   flex-direction: column;
+  color: var(--text-inv);
+  text-shadow: 1px 0 1px black;
 }
 
-.hero__stat span {
+.heroStat span {
   font-family: var(--font-heading);
   font-size: 2.2rem;
-  color: var(--background);
 }
 
-.hero__stat small {
+.heroStat small {
   margin-top: .35rem;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--text-inv);
+  font-weight: bold;
 }
 
-.hero__divider {
+.heroDivider {
   width: 1px;
   height: 50px;
-  background: rgba(255, 255, 255, .25);
+  background: rgba(128, 128, 128, 0.5);
 }
 
-.progress-container {
+.progressContainer {
   width: 100%;
-  background-color: var(--progress-bg);
-  border-radius: 16px;
+  background-color: var(--background);
+  border-radius: 6px;
   overflow: hidden;
   margin-top: 1rem;
 }
 
-.progress-bar {
+.progressBar {
   height: 16px;
-  border-radius: 16px;
-  background-color: var(--progress);
+  border-radius: 6px;
+  background-color: var(--text);
   transition: width 0.4s ease;
 }
 
 @media (max-width:1280px) {
-  .hero {
+  .heroDiv {
+    background-image: url('/hero-medium.jpg');
+  }
+
+  .heroDiv {
     padding: 16px;
   }
 
-  .hero__content {
+  .heroContent {
     width: 70%;
   }
 
-  .hero__title,
-  .hero__description,
-  .hero__stats {
+  .heroTitle,
+  .heroDescription,
+  .heroStats {
     margin-top: 1rem;
   }
 
-  .hero__title {
+  .heroStatsDiv {
+    margin-top: 6rem;
+  }
+
+  .heroTitle {
     font-size: 3.4rem;
   }
 
-  .hero__description {
+  .heroDescription {
     font-size: 1.05rem;
   }
 
-  .hero__stats {
+  .heroStats {
     gap: 1.5rem;
+  }
+}
+
+@media (max-width:1024px) {
+  .heroDiv {
+    background-image: url('/hero-small.jpg');
+  }
+
+  .heroStatsDiv {
+    margin-top: 4rem;
   }
 }

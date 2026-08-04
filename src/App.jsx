@@ -117,6 +117,7 @@ export default function App() {
             selected={filterCategory}
             isVisibleOnSmallScreen={true}
             isOpen={smallFilter}
+            toggleFilter={setSmallFilter}
             smallHidden={smallPage === 0}
           />
 

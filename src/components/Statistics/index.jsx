@@ -52,8 +52,9 @@ export default function Statistics({ total, completed, categoryCounts, svgMap, r
         <div className="whatsNextDiv">
           <img
             className="whatsNextImg"
-            src={`../src/assets/images/${whatsNext.slug}.jpg`}
-            onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = `../src/assets/images/empty.jpg`; }}
+            src={`/src/assets/images/${whatsNext.slug}.jpg`}
+            loading="lazy"
+            decoding="async"
           />
           <div className="whatsNextTitle">{whatsNext.title}</div>
           <div className="whatsNextCaption">{whatsNext.caption}</div>
@@ -67,8 +68,9 @@ export default function Statistics({ total, completed, categoryCounts, svgMap, r
           <div className="activityRow" key={item.id}>
             <img
               className="activityImg"
-              src={`../src/assets/images/${item.slug}.jpg`}
-              onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = `../src/assets/images/empty.jpg`; }}
+              src={`/src/assets/images/${item.slug}.jpg`}
+              loading="lazy"
+              decoding="async"
             />
             <div className="activityData">
               <div>{item.title}</div>

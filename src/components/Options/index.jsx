@@ -1,6 +1,6 @@
 import "./Options.css";
 
-export default function Options({ categoryCounts, svgMap, filterBucket, selected, isVisibleOnSmallScreen, isOpen, smallHidden }) {
+export default function Options({ categoryCounts, svgMap, filterBucket, selected, isVisibleOnSmallScreen, isOpen, toggleFilter, smallHidden }) {
   const DreamsSvg = svgMap['dreams'];
   const optionsArr = ["optionsWrapper"];
 
@@ -14,7 +14,7 @@ export default function Options({ categoryCounts, svgMap, filterBucket, selected
     <div className={optionsArr.join(" ")}>
       <div
         className={selected === 'all' ? "optionsDiv selected" : 'optionsDiv'}
-        onClick={() => filterBucket('all')}
+        onClick={() => { filterBucket('all'); toggleFilter(state => !state) }}
       >
         <DreamsSvg />
         <div className="optionName">All</div>
@@ -30,7 +30,7 @@ export default function Options({ categoryCounts, svgMap, filterBucket, selected
             <div
               className={selected === category ? "optionsDiv selected" : "optionsDiv"}
               key={category}
-              onClick={() => filterBucket(category)}
+              onClick={() => { filterBucket(category); toggleFilter(state => !state) }}
             >
               {SvgIcon ? (
                 <SvgIcon />

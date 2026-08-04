@@ -6,117 +6,20 @@
   font-style: normal;
 }
 
-/* Cormorant Garamond */
+/* Poynter Oldstyle Text */
 @font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('/src/assets/fonts/CormorantGaramond/CormorantGaramond-Regular.ttf') format('truetype');
-  font-weight: 400;
+  font-family: 'Poynter Oldstyle Text';
+  src: url('/src/assets/fonts/PoynterOS/PoynterOldstyleText-Roman.woff2') format('woff2'),
+    url('/src/assets/fonts/PoynterOS/PoynterOldstyleText-Roman.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('/src/assets/fonts/CormorantGaramond/CormorantGaramond-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('/src/assets/fonts/CormorantGaramond/CormorantGaramond-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('/src/assets/fonts/CormorantGaramond/CormorantGaramond-MediumItalic.ttf') format('truetype');
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('/src/assets/fonts/CormorantGaramond/CormorantGaramond-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('/src/assets/fonts/CormorantGaramond/CormorantGaramond-SemiBoldItalic.ttf') format('truetype');
-  font-weight: 600;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('/src/assets/fonts/CormorantGaramond/CormorantGaramond-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('/src/assets/fonts/CormorantGaramond/CormorantGaramond-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
-  font-style: italic;
 }
 
 /* Source Sans 3 */
-
 @font-face {
   font-family: 'Source Sans 3';
-  src: url('/src/assets/fonts/SourceSans3/SourceSans3-Regular.ttf') format('truetype');
-  font-weight: 400;
+  src: url('/src/assets/fonts/SourceSans3/source-sans-3-latin-400-normal.woff2') format('woff2'),
+    url('/src/assets/fonts/SourceSans3/source-sans-3-latin-400-normal.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/src/assets/fonts/SourceSans3/SourceSans3-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/src/assets/fonts/SourceSans3/SourceSans3-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/src/assets/fonts/SourceSans3/SourceSans3-MediumItalic.ttf') format('truetype');
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/src/assets/fonts/SourceSans3/SourceSans3-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/src/assets/fonts/SourceSans3/SourceSans3-SemiBoldItalic.ttf') format('truetype');
-  font-weight: 600;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/src/assets/fonts/SourceSans3/SourceSans3-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Source Sans 3';
-  src: url('/src/assets/fonts/SourceSans3/SourceSans3-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
-  font-style: italic;
 }
