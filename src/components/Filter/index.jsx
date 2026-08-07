@@ -1,31 +1,24 @@
-import { useState } from "react";
 import "./Filter.css";
 
-export default function Filter({ filterBucket, smallHidden }) {
-  const [selected, setSelected] = useState('all');
-  const handleClick = (category) => {
-    filterBucket(category);
-    setSelected(category);
-  }
-
+export default function Filter({ selected, filterBucket, isHidden }) {
   return (
-    <div className={smallHidden ? "filterBox" : "filterBox smallHidden"}>
+    <div className={`filterBox ${isHidden && "smallHidden"}`}>
       <div
-        onClick={() => handleClick('all')}
+        onClick={() => filterBucket('all')}
         className={selected === 'all' ? "filterBtn selected" : "filterBtn"}
       >
         All
       </div>
 
       <div
-        onClick={() => handleClick('complete')}
+        onClick={() => filterBucket('complete')}
         className={selected === 'complete' ? "filterBtn selected" : "filterBtn"}
       >
         Fulfilled
       </div>
 
       <div
-        onClick={() => handleClick('incomplete')}
+        onClick={() => filterBucket('incomplete')}
         className={selected === 'incomplete' ? "filterBtn selected" : "filterBtn"}
       >
         Awaited

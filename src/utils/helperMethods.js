@@ -26,9 +26,36 @@ function getWhatsNext(bucket) {
 
 function filterBucket(bucket, category, status) {
   return bucket.filter(item => {
-    const categoryOk = category === "all" || item.category === category;
-    const statusOk = status === "all" || (status === "complete" ? item.completed : !item.completed);
-    return categoryOk && statusOk;
+    const matchesCategory = category === "all" || item.category === category;
+    const matchesStatus = status === "all" || (status === "complete" ? item.completed : !item.completed);
+    return matchesCategory && matchesStatus;
+  });
+}
+
+function searchBucket(items, query) {
+  const normalizedQuery = query.trim().toLowerCase();
+
+  if (!normalizedQuery) return items;
+
+  const searchTerms = normalizedQuery
+    .split(/\s+/)
+    .filter(Boolean);
+
+  return items.filter((item) => {
+    const searchableText = [
+      item.title,
+      item.caption,
+      item.category,
+      item.location,
+      item.notes,
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+
+    return searchTerms.every((term) =>
+      searchableText.includes(term)
+    );
   });
 }
 
@@ -44,4 +71,4 @@ function reFormatDate(dateStr) {
   }).format(date);
 };
 
-export { getCategoryCounts, getRecentActivities, getWhatsNext, filterBucket, reFormatDate };
+export { getCategoryCounts, getRecentActivities, getWhatsNext, filterBucket, searchBucket, reFormatDate };

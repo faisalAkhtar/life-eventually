@@ -1,11 +1,8 @@
-import { useState, useMemo } from "react";
-
 import "./styles/fonts.css";
 import "./styles/variable.css";
 import "./styles/base.css";
 
 import bucket from "./data/bucket.json";
-import { filterBucket } from "./utils/helperMethods";
 import { useBucketData } from "./hooks/useBucketData";
 
 import Navbar from "./components/Navbar/";
@@ -22,45 +19,63 @@ import SmallScreenNavbar from "./components/SmallScreenNavbar/";
 import Options from "./components/Options/";
 
 export default function App() {
-  const { completed, categoryCounts, recentActivities, whatsNext } = useBucketData(bucket);
-  const [smallPage, setSmallPage] = useState(0);
-  const [smallFilter, setSmallFilter] = useState(false);
-  const [filterCategory, setFilterCategory] = useState('all');
-  const [filterStatus, setFilterStatus] = useState('all');
-  const filteredBucketItems = useMemo(() => filterBucket(bucket, filterCategory, filterStatus), [filterCategory, filterStatus]);
+  const {
+    completed,
+    categoryCounts,
+    recentActivities,
+    whatsNext,
+    filterCategory,
+    filterStatus,
+    search,
+    displayedBucketItems,
+    setFilterStatus,
+    setSearch,
+    handleCategoryChange,
+    smallPage,
+    smallFilter,
+    smallSearch,
+    setSmallPage,
+    setSmallFilter,
+    setSmallSearch
+  } = useBucketData(bucket);
 
   return (
     <>
       <Navbar
-        smallVisible={smallPage === 3}
+        smallVisible={smallPage === 2}
         categoryCounts={categoryCounts}
-        filterBucket={setFilterCategory}
+        filterBucket={handleCategoryChange}
         selected={filterCategory}
       />
 
       <main>
         <Header total={bucket.length} completed={completed} />
 
-        <Topbar smallHidden={smallPage === 0 || smallPage === 1}>
+        <Topbar smallHidden={smallPage === 0}>
           <Filter
-            smallHidden={smallPage === 0}
+            selected={filterStatus}
             filterBucket={setFilterStatus}
-            length={filteredBucketItems.length}
+            isHidden={smallSearch}
           />
 
-          <Search smallHidden={smallPage === 1} />
-
           <SmallScreenFilter
-            smallHidden={smallPage === 0}
             isOpen={smallFilter}
             toggleFilter={setSmallFilter}
+            isHidden={smallSearch}
+          />
+
+          <Search
+            search={search}
+            setSearch={setSearch}
+            isOpen={smallSearch}
+            toggleSearch={setSmallSearch}
           />
         </Topbar>
 
         <div className="collectionPage">
           <Options
             categoryCounts={categoryCounts}
-            filterBucket={setFilterCategory}
+            filterBucket={handleCategoryChange}
             selected={filterCategory}
             isVisibleOnSmallScreen={true}
             isOpen={smallFilter}
@@ -69,12 +84,16 @@ export default function App() {
           />
 
           <CollectionGrid smallHidden={smallPage === 0}>
-            {filteredBucketItems.length === 0 ? (
+            {displayedBucketItems.length === 0 ? (
               <div className="emptyQuote">
-                If I am alive and kicking, something is coming up right here. Stay tuned! &mdash; Yours truly.
+                {search.trim() ? (
+                  <>Apparently, I have not planned for <strong>"{search}"</strong> yet.</>
+                ) : (
+                  <>If I am alive and kicking, something is coming up right here. Stay tuned! &mdash; Yours truly.</>
+                )}
               </div>
             ) : (
-              filteredBucketItems.map((item) => (
+              displayedBucketItems.map((item) => (
                 <CollectionCard
                   key={item.id}
                   title={item.title}
@@ -93,11 +112,11 @@ export default function App() {
             categoryCounts={categoryCounts}
             recentActivities={recentActivities}
             whatsNext={whatsNext}
-            smallHidden={smallPage === 2}
+            smallHidden={smallPage === 1}
           />
         </div>
 
-        <Footer />
+        <Footer smallHidden={smallPage === 2} />
       </main>
 
       <SmallScreenNavbar selected={smallPage} setSelected={setSmallPage} />

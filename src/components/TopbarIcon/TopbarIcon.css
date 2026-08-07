@@ -1,32 +1,38 @@
-.filterIconWrapper {
-  display: none;
-  border-left: 1px solid var(--border-color);
+.topbarIconWrapper {
   padding: 10px 0 10px 20px;
 }
 
-.filterIconDiv {
+.filterIconDiv,
+.searchIconDiv {
+  display: none;
+}
+
+.topbarIconDiv {
   padding: 4px 8px;
   background-color: rgba(140, 140, 140, 0.1);
   border-radius: 16px;
 }
 
-.filterIconDiv.selected {
+.topbarIconWrapper.selected .topbarIconDiv {
   background-color: rgba(140, 140, 140, 0.2);
 }
 
-.filterIconSvg {
+.topbarIconDiv svg {
   width: 20px;
 }
 
 @media (max-width:1280px) {
-  .filterIconWrapper {
+  .filterIconDiv {
     display: block;
   }
 }
 
 @media (max-width:1024px) {
-  .filterIconWrapper {
-    border-left: none;
-    padding: 3px 0 3px 12px;
+  .topbarIconWrapper {
+    padding: 4px 0 4px 12px;
+  }
+
+  .searchIconDiv {
+    display: block;
   }
 }

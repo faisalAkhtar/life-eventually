@@ -1,16 +1,14 @@
-import "./SmallScreenFilter.css";
 import { svgMap } from "../../utils/globLoader";
+import TopbarIcon from "../TopbarIcon";
 
-export default function SmallScreenFilter({ isOpen, smallHidden, toggleFilter }) {
+export default function SmallScreenFilter({ isOpen, toggleFilter, isHidden }) {
   const Icon = svgMap['filter'];
   return (
-    <div className={smallHidden ? "filterIconWrapper" : "filterIconWrapper smallHidden"}>
-      <div
-        className={isOpen ? "filterIconDiv selected" : "filterIconDiv"}
-        onClick={() => toggleFilter(state => !state)}
-      >
-        <Icon className="filterIconSvg" />
-      </div>
-    </div>
+    <TopbarIcon
+      handleClick={() => toggleFilter(state => !state)}
+      classList={`${isHidden ? "smallHidden" : ""} ${isOpen ? "selected" : ""} filterIconDiv`}
+    >
+      <Icon />
+    </TopbarIcon>
   );
 }
