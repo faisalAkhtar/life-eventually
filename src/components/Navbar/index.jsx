@@ -1,5 +1,6 @@
+import { Suspense, lazy } from "react";
 import "./Navbar.css";
-import Options from "../Options/";
+const Options = lazy(() => import("../Options/"));
 import { svgMap } from "../../utils/globLoader";
 
 export default function Navbar({ categoryCounts, filterBucket, smallVisible, selected }) {
@@ -10,15 +11,17 @@ export default function Navbar({ categoryCounts, filterBucket, smallVisible, sel
       <div className="navTop">
         <div className="navTitle">faisal.</div>
 
-        <Options
-          categoryCounts={categoryCounts}
-          filterBucket={filterBucket}
-          selected={selected}
-          isVisibleOnSmallScreen={false}
-        />
+        <Suspense>
+          <Options
+            categoryCounts={categoryCounts}
+            filterBucket={filterBucket}
+            selected={selected}
+            isVisibleOnSmallScreen={false}
+          />
+        </Suspense>
       </div>
 
-      <div className={smallVisible ? "navBot smallVisible" : "navBot"}>
+      <div className={`navBot ${smallVisible ? "smallVisible" : ""}`}>
         <div className="navQuote">
           <QuoteSvg className="quoteSvg" />
           <div className="subQuote">You miss 100% of the shots you don't take</div>

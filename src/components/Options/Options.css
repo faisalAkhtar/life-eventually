@@ -5,9 +5,25 @@
   display: flex;
   gap: 8px;
 
+  opacity: 0;
+  animation: optsReveal 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(80ms + (var(--opt-index) * 35ms));
+
   &:hover {
     background-color: rgba(128, 128, 128, 0.05);
     cursor: pointer;
+  }
+}
+
+@keyframes optsReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -27,6 +43,10 @@
 
 .optionsWrapper.smallScreenOptions {
   display: none;
+  transition: grid-template-rows 0.3s ease,
+    grid-template-columns 0.3s ease;
+  max-width: 600px;
+  margin: 0 auto;
   padding: 0 12px;
   box-shadow: var(--shadow);
 }
@@ -36,7 +56,27 @@
     display: none;
   }
 
+  .optionsWrapper.smallScreenOptions {
+    grid-template-columns: 0fr;
+    grid-template-rows: 1fr;
+    display: grid;
+  }
+
   .optionsWrapper.smallScreenOptions.isSmallOptionOpen {
-    display: block;
+    grid-template-columns: 1fr;
+    width: 300px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .optionsWrapper.smallScreenOptions {
+    grid-template-rows: 0fr;
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .optionsWrapper.smallScreenOptions.isSmallOptionOpen {
+    grid-template-rows: 1fr;
+    width: unset;
   }
 }

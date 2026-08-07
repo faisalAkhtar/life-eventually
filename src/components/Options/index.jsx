@@ -17,34 +17,36 @@ export default function Options({ categoryCounts, filterBucket, selected, isVisi
 
   return (
     <div className={optionsArr.join(" ")}>
-      <div
-        className={selected === 'all' ? "optionsDiv selected" : 'optionsDiv'}
-        onClick={handleClick('all')}
-      >
-        <DreamsSvg />
-        <div className="optionName">All</div>
-      </div>
+      <div style={{ overflow: "hidden" }}>
+        <div
+          className={`optionsDiv ${selected === 'all' ? "selected" : ""}`}
+          onClick={handleClick('all')}
+          style={{ "--opt-index": 0 }}
+        >
+          <DreamsSvg />
+          <div className="optionName">All</div>
+        </div>
 
-      {
-        Object.entries(categoryCounts).map(([category]) => {
-          const SvgIcon = svgMap[category];
-          const categoryName = category.split('-')
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(' ');
-          return (
-            <div
-              key={category}
-              className={selected === category ? "optionsDiv selected" : "optionsDiv"}
-              onClick={handleClick(category)}
-            >
-              {SvgIcon ? (
-                <SvgIcon />
-              ) : ""}
-              <div className="optionName">{categoryName}</div>
-            </div>
-          )
-        })
-      }
+        {
+          Object.entries(categoryCounts).map(([category, counts], ind) => {
+            const SvgIcon = svgMap[category];
+            const categoryName = category.split('-')
+              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(' ');
+            return (
+              <div
+                key={category}
+                className={`optionsDiv ${selected === category ? "selected" : ""}`}
+                onClick={handleClick(category)}
+                style={{ "--opt-index": ind+1 }}
+              >
+                {SvgIcon ? <SvgIcon />  : ""}
+                <div className="optionName">{categoryName}</div>
+              </div>
+            )
+          })
+        }
+      </div>
     </div>
   );
 }

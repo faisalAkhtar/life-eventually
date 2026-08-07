@@ -12,7 +12,8 @@ function getRecentActivities(bucket, count = 3) {
       if (!b.dateCompleted) return -1;
       return new Date(b.dateCompleted) - new Date(a.dateCompleted);
     })
-    .slice(0, count);
+    .slice(0, count)
+    .filter(item => item.dateCompleted !== "");
 }
 
 function getWhatsNext(bucket) {

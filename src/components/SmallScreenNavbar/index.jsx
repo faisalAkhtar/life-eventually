@@ -10,21 +10,21 @@ export default function SmallScreenNavbar({ selected, setSelected }) {
     <div className="smallNavbarDiv">
       <div
         onClick={() => { setSelected(0) }}
-        className={selected === 0 ? "smallNavbarItem selected" : "smallNavbarItem"}
+        className={`smallNavbarItem ${selected === 0 ? "selected" : ""}`}
       >
         <BucketSvg className="smallNavbarSvg" />
         <div className="smallNavbarTxt">Bucketlist</div>
       </div>
       <div
         onClick={() => { setSelected(1) }}
-        className={selected === 1 ? "smallNavbarItem selected" : "smallNavbarItem"}
+        className={`smallNavbarItem ${selected === 1 ? "selected" : ""}`}
       >
         <StatsSvg className="smallNavbarSvg" />
         <div className="smallNavbarTxt">Stats</div>
       </div>
       <div
         onClick={() => { setSelected(2) }}
-        className={selected === 2 ? "smallNavbarItem selected" : "smallNavbarItem"}
+        className={`smallNavbarItem ${selected === 2 ? "selected" : ""}`}
       >
         <QuoteSvg className="smallNavbarSvg" />
         <div className="smallNavbarTxt">Inspo</div>

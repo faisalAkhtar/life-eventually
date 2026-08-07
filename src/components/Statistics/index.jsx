@@ -8,8 +8,8 @@ export default function Statistics({ total, completed, categoryCounts, recentAct
   const ToDoIcon = svgMap['list']
 
   return (
-    <div className={smallHidden ? "statisticsGrid" : "statisticsGrid smallHidden"}>
-      <div className="statisticsBox">
+    <div className={`statisticsGrid ${smallHidden ? "" : "smallHidden"}`}>
+      <div className="statisticsBox"  style={{ "--stat-index": 0 }}>
         <h3>At a Glance</h3>
         <div className="underScore" />
         <table>
@@ -48,7 +48,7 @@ export default function Statistics({ total, completed, categoryCounts, recentAct
         </table>
       </div>
 
-      <div className="statisticsBox">
+      <div className="statisticsBox" style={{ "--stat-index": 1 }}>
         <h3>What's Next?</h3>
         <div className="underScore" />
         <div className="whatsNextDiv">
@@ -63,7 +63,7 @@ export default function Statistics({ total, completed, categoryCounts, recentAct
         </div>
       </div>
 
-      <div className="statisticsBox">
+      <div className="statisticsBox" style={{ "--stat-index": 2 }}>
         <h3>Recent Activity</h3>
         <div className="underScore" />
         {recentActivities.map((item) => (

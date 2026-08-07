@@ -8,7 +8,7 @@ export default function Search({ search, setSearch, isOpen, toggleSearch }) {
 
   return (
     <>
-      <div className={`search-container ${!isOpen && "smallHidden"}`}>
+      <div className={`search-container ${!isOpen ? "smallHidden" : ""}`}>
         <input
           type="text"
           className="search-input"

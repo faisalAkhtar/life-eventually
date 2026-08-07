@@ -14,7 +14,7 @@ export default function Header({ completed, total }) {
         </p>
 
         <h1 className="heroTitle">
-          Life, Eventually.
+          Life, <span>Eventually.</span>
         </h1>
 
         <div className="heroStatsDiv">
