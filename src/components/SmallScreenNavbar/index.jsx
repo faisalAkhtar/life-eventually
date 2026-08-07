@@ -35,7 +35,7 @@ export default function SmallScreenNavbar({ selected, setSelected }) {
         className={selected === 3 ? "smallNavbarItem selected" : "smallNavbarItem"}
       >
         <QuoteSvg className="smallNavbarSvg" />
-        <div className="smallNavbarTxt">Quote</div>
+        <div className="smallNavbarTxt">Inspo</div>
       </div>
     </div>
   );

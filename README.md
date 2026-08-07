@@ -1,6 +1,6 @@
 # Life, Eventually.
 
-> *Some dreams have become memories. Some are still waiting for the right day.*
+![preview](preview.jpg)
 
 A few years ago, I began keeping a list of experiences I wanted to have before I grew old enough to call them "things I want to do before I die"
 

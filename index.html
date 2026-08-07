@@ -2,49 +2,35 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="./favicon.ico" />
-  <meta content="yes" name="apple-mobile-web-app-capable">
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-  <link rel="shortcut icon" href="./favicon.ico">
-  <meta name="msapplication-TileColor" content="#222222">
-  <meta name="theme-color" content="#222222" />
-  <link rel="preload" href="/src/assets/fonts/Aliya-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-  <link rel="preload" href="/src/assets/fonts/CormorantGaramond/CormorantGaramond-SemiBold.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-  <link rel="preload" href="/src/assets/fonts/CormorantGaramond/CormorantGaramond-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-  <link rel="preload" href="/src/assets/fonts/SourceSans3/SourceSans3-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" name="viewport">
+  <meta charset="UTF-8">
   <meta name="author" content="Faisal Akhtar">
-  <meta name="keywords"
-    content="Faisal, Akhtar, Faisal Akhtar, Embedded Engineer, Optical Systems, Networking, Software Developer, C++, C, Linux, VxWorks, OSRP, Control Plane, CIENA, MRV Research, Developer Portfolio, Programmer, System Design, Low-Level Programming, Debugging, Optimization, NodeJS, JavaScript, HTML, CSS, React.js, UI/UX, AWS, Data Structures, Algorithms, NoSQL, Database Design, Cloud Computing, Ramanujan College, Delhi University, DU, Computer Science, Full-Stack, Web Design, Open Source">
-  <meta name="title" content="Faisal Akhtar — My web portfolio">
-  <meta name="description"
-    content="Hi, I'm Faisal Akhtar, an Embedded & Optical Systems Engineer with expertise in C++, networking, system-level programming and I occasionally design websites for fun">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <meta name="theme-color" content="#f6f3ed">
+  <meta name="color-scheme" content="light">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <link rel="canonical" href="https://faisals-bucketlist.netlify.app">
+  <meta name="robots" content="index,follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="preload" href="/src/assets/fonts/Aliya-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+  <link rel="preload" href="/src/assets/fonts/PoynterOS/PoynterOldstyleText-Roman.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preload" href="/src/assets/fonts/SourceSans3/source-sans-3-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+  <meta name="author" content="Faisal Akhtar">
+  <meta name="keywords" content="bucket list, life eventually, Faisal Akhtar, adventures, travel, personal website, life goals, memories, experiences, dreams, checklist, photography, travel journal">
+  <meta name="title" content="Life, Eventually | A bucket list for a life well lived by Faisal">
+  <meta name="description" content="A living collection of dreams, adventures and experiences. Some lived, some awaited. Journaling my journey as I slowly cross them off, one memory at a time.">
+  <meta property="og:title" content="Life, Eventually | A bucket list for a life well lived by Faisal">
+  <meta property="og:description" content="A personal bucket list documenting adventures completed, dreams yet to come, and the stories collected along the way.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://faisalakhtar.github.io">
-  <meta property="og:site_name" content="Faisal Akhtar — My web portfolio">
-  <meta property="og:title" content="Faisal Akhtar — My web portfolio">
-  <meta property="og:description"
-    content="Hi, I'm Faisal Akhtar, an Embedded & Optical Systems Engineer with expertise in C++, networking, system-level programming and I occasionally design websites for fun">
-  <meta property="og:type" content="website">
-  <meta property="og:image" itemprop="image" content="https://faisalakhtar.github.io/img/OG-image-large.jpg">
-  <meta property="og:image:type" content="image/jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="628">
-  <meta property="og:image" itemprop="image" content="https://faisalakhtar.github.io/img/OG-image-small.jpg">
-  <meta property="og:image:type" content="image/jpg">
-  <meta property="og:image:width" content="400">
-  <meta property="og:image:height" content="400">
+  <meta property="og:image" content="https://raw.githubusercontent.com/faisalAkhtar/life-eventually/refs/heads/main/preview.jpg">
+  <meta property="og:url" content="https://faisals-bucketlist.netlify.app/">
+  <meta property="og:site_name" content="Life, Eventually.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://faisalakhtar.github.io">
-  <meta name="twitter:site_name" content="Faisal Akhtar — My web portfolio">
-  <meta name="twitter:title" content="Faisal Akhtar — My web portfolio">
-  <meta name="twitter:description"
-    content="Hi, I'm Faisal Akhtar, an Embedded & Optical Systems Engineer with expertise in C++, networking, system-level programming and I occasionally design websites for fun">
-  <meta name="twitter:type" content="website">
-  <meta name="twitter:image" itemprop="image" content="https://faisalakhtar.github.io/img/OG-image-large.jpg">
-  <meta name="twitter:image:alt" content="Faisal smiling at you">
+  <meta name="twitter:title" content="Life, Eventually | A bucket list for a life well lived by Faisal">
+  <meta name="twitter:description" content="A personal bucket list documenting adventures completed, dreams yet to come, and the stories collected along the way.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/faisalAkhtar/life-eventually/refs/heads/main/preview.jpg">
+  <meta name="twitter:image:alt" content="Preview of the Life, Eventually bucket list website">
   <title>Life Eventually | Faisal Akhtar</title>
 </head>
 

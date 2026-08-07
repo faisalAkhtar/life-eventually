@@ -2,6 +2,7 @@
   position: relative;
   text-align: center;
   font-size: 14px;
+  padding: 0 4px;
 }
 
 .cardImgDiv {
@@ -129,7 +130,6 @@
   }
 
   .cardTitle {
-    font-size: 14px;
     margin: 4px 0;
   }
 }

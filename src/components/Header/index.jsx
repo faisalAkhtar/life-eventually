@@ -18,15 +18,7 @@ export default function Header({ completed, total }) {
         </h1>
 
         <div className="heroStatsDiv">
-          <div className="heroStat">
-            <span>{total}</span>
-            <small>Dreams</small>
-          </div>
-          <div className="heroDivider" />
-          <div className="heroStat">
-            <span>{completed}</span>
-            <small>Fulfilled</small>
-          </div>
+          <span>{completed} / {total}</span> dreams fulfilled
         </div>
 
         <div className="progressContainer">
