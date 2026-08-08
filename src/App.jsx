@@ -103,7 +103,9 @@ export default function App() {
                     ind={ind}
                     key={item.id}
                     title={item.title}
+                    caption={item.caption}
                     completed={item.completed}
+                    location={item.location}
                     dateCompleted={item.dateCompleted}
                     dateAdded={item.dateAdded}
                     slug={item.slug}

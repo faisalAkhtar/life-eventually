@@ -25,7 +25,7 @@
 .cardDiv.todo {
   transition: filter var(--transition);
 }
-  
+
 .cardDiv.completed {
   filter: saturate(0.9);
 }
@@ -109,8 +109,13 @@
 .cardTitle {
   font-family: var(--font-heading);
   font-weight: normal;
-  margin: 8px 0;
+  margin-top: 8px;
+  /* margin: 8px 0; */
   font-size: 16px;
+}
+
+.cardCaption {
+  margin: 4px 0 2px;
 }
 
 .cardDate {
@@ -146,6 +151,11 @@
   .checkbox:checked {
     top: 5%;
     right: 5%;
+  }
+
+  .cardCaption {
+    line-height: 1.5;
+    height: 2lh;
   }
 }
 

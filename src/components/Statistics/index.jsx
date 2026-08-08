@@ -76,10 +76,11 @@ export default function Statistics({ total, completed, categoryCounts, recentAct
             />
             <div className="activityData">
               <div>{item.title}</div>
-              <div className="activityDate">{reFormatDate(item.dateCompleted)}</div>
+              <div className="activityDate">{item.location}</div>
             </div>
           </div>
         ))}
+        <div className="lastActive">Last activity: {reFormatDate(recentActivities[0].dateCompleted)}</div>
       </div>
     </div>
   );
